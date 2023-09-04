@@ -1,8 +1,17 @@
-# React + Vite
+# Movies Hunter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Movies Hunter is a web application that allows you to search for movies and access detailed information about them. It's built using the React library and Vite framework, and it uses the TMDB (The Movie Database) API to fetch movie data.
 
-Currently, two official plugins are available:
+![Movies Hunter Screenshot](screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Search for movies by title, keywords, or genres.
+- View detailed information about a movie, including its cast, release date, rating, and more.
+- Discover popular and trending movies.
+- Save your favorite movies to a watchlist.
+- Responsive design for a seamless experience on desktop and mobile devices.
+
+## Demo
+
+You can try out Movies Hunter by visiting [Demo Link](https://example.com/movies-hunter-demo).

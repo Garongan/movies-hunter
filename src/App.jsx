@@ -58,9 +58,9 @@ const App = () => {
               onChange={(e) => search(e.target.value)}
             />
           </div>
-          <div className="movie-container">
-            <PopularMovieList />
-          </div>
+        </div>
+        <div className="movie-container">
+          <PopularMovieList />
         </div>
       </div>
     </>
