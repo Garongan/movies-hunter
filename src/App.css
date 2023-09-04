@@ -6,11 +6,17 @@
 }
 
 .header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #F2EAD3;
+  background-color: #1a2634;
+  padding-left: calc(14% / 2);
+  padding-right: calc(14% / 2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: 0 .125rem .75rem rgba(0, 0, 0, .5);
+}
+
+.header h1 {
+  margin-right: auto;
 }
 
 .movie-title {
@@ -36,10 +42,11 @@
   width: 200px;
   height: 300px;
   border-radius: 10px;
+  filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, .5));
 }
 
 .movie-container {
-  margin-top: 250px;
+  margin-top: 2rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -47,6 +54,24 @@
   align-items: center;
   gap: 20px;
   row-gap: 20px;
+  opacity: 0;
+  animation: fadeAndSwipe 1s ease forwards;
+}
+
+@keyframes fadeAndSwipe {
+  0% {
+    opacity: 0; /* Start with opacity set to 0 */
+    transform: translateY(100%); /* Start off-screen */
+  }
+  100% {
+    opacity: 1; /* Animate opacity to 1 (fade-in effect) */
+    transform: translateY(0); /* Animate to the original position (swipe-up effect) */
+  }
+}
+
+.movie-container.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .movie-wrapper {
@@ -56,34 +81,58 @@
 }
 
 .movie-search {
+  color: #ebf2f9;
   font-size: 16px;
-  padding: 8px;
-  margin: 10px;
+  height: 2rem;
+  padding-left: 20px;
   border-radius: 10px;
   background-color: transparent;
-  border: 1px solid #3F2305;
+}
+
+.movie-search::placeholder {
+  transition: opacity 0.3s ease;
+}
+
+.movie-search:focus::placeholder {
+  opacity: 0;
 }
 
 .movie-search:focus {
+  color: #ebf2f9;
   outline: 0px;
   background-color: transparent;
-  border: 1px solid #3F2305;
 }
 
 .title-content-wrapper {
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 32px;
-  margin-top: 32px;
 }
 
 .title-content {
   margin: 10px;
+  padding-right: 10px;
+}
+
+.footer {
+  background-color: #1a2634;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 576px) {
+  .header h1 {
+    margin: auto;
+    padding-top: 2rem;
+  }
+  .title-content-wrapper {
+    padding-bottom: 2rem;
+  }
   .movie-wrapper {
     width: 120px;
     padding-bottom: 10px;

@@ -1,7 +1,28 @@
+/* eslint-disable react/prop-types */
 import { useEffect } from "react";
-import { getMovieList, searchMovie } from "./api";
+import { getMovieList, searchMovie } from "./components/TmdbApi";
 import "./App.css";
 import { useState } from "react";
+import PopularMovieList from "./components/PopularMovieList";
+
+const MovieContainer = ({ popularMovies }) => {
+  const [shouldAnimate, setShouldAnimate] = useState(true);
+
+  useEffect(() => {
+    const animationTimeout = setTimeout(() => {
+      setShouldAnimate(false);
+    }, 500);
+
+    // Clean up the timeout to prevent memory leaks
+    return () => clearTimeout(animationTimeout);
+  }, []);
+
+  return (
+    <div className={`movie-container ${shouldAnimate ? "" : "animate"}`}>
+      <PopularMovieList popularMovies={popularMovies} />
+    </div>
+  );
+};
 
 const App = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -25,43 +46,27 @@ const App = () => {
     return <h2 className="title-content">{titleName}</h2>;
   };
 
-  const PopularMovieList = () => {
-    return popularMovies.map((movie, index) => {
-      return (
-        <div className="movie-wrapper" key={index}>
-          <div className="image-container">
-            <img
-              className="movie-image"
-              src={`${import.meta.env.VITE_BASEIMAGEURL}${movie.poster_path}`}
-              alt="Movie Poster"
-            />
-          </div>
-          <div className="movie-title">{movie.title}</div>
-          <div className="movie-date">Release date: {movie.release_date}</div>
-          <div className="movie-rating">Rating: {movie.vote_average}</div>
-        </div>
-      );
-    });
-  };
-
   return (
     <>
+      <div className="header">
+        <h1>Movies Hunter</h1>
+        <div className="title-content-wrapper">
+          <TitleContent />
+          <input
+            type="text"
+            placeholder="🔍 Search Movies..."
+            className="movie-search"
+            onChange={(e) => search(e.target.value)}
+          />
+        </div>
+      </div>
+
       <div className="app">
-        <div className="header">
-          <h1>Movies Hunter</h1>
-          <div className="title-content-wrapper">
-            <TitleContent />
-            <input
-              type="text"
-              placeholder="Search Movies"
-              className="movie-search"
-              onChange={(e) => search(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="movie-container">
-          <PopularMovieList />
-        </div>
+        <MovieContainer popularMovies={popularMovies} />
+      </div>
+
+      <div className="footer">
+        Copyright 2023 @alvindotri
       </div>
     </>
   );
