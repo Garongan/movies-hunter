@@ -5,13 +5,13 @@ Movies Hunter is a web application that allows you to search for movies and acce
 # Screenshot
 ![Movies Hunter Screenshot](screenshot.png)
 
-## Features
+# Features
 
 - Search for movies by title.
 - View detailed information about a movie, including release date and rating
 - Discover popular movies.
 - Responsive design for a seamless experience on desktop and mobile devices.
 
-## Demo
+# Demo
 
 You can try out Movies Hunter by visiting [Demo Link](https://garongan.github.io/movies-hunter).
