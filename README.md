@@ -17,4 +17,4 @@ Movies Hunter is a web application that allows you to search for movies and acce
 
 # Demo
 
-You can try out Movies Hunter by visiting [Demo Link](https://garongan.github.io/movies-hunter).
+You can try out Movies Hunter by visiting [Demo Link](https://movies-hunter.vercel.app/).
